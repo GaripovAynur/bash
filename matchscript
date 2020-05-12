@@ -1,0 +1,21 @@
+#!/bin/bash
+
+file="myfile"
+
+
+for var in $(sed 's/Услуга по обработке фискальных данных ККТ по заявлению, РНМ://' $file) #Удалить Услуга...
+do
+    if grep $var /bash/all_AZS
+	then
+	    grep $var /bash/all_AZS >> result
+    else
+	    echo $var >> resulterror
+    fi
+cat -n result > result_number.txt
+done
+
+
+rm -f result
+ > $file
+
+
