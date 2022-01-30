@@ -9,7 +9,8 @@ nohup ./myscript &                # Скрипты можно выполнять
 runlevel                            # Посмотреть в каком режиме  запущен Linux ( Обычно 3, это мультипользовательском режиме Sys V, чтобы переключить без перезагрузки, пример пишем telinit 1)
 systemctl list-unists --type=target # Тоже самое runlevel, только в systemd
 
-find . -name "*.txt" | xargs rm -f  # передает построчно то что нашел команде xargs тот передает  rm -f
+time curl -s http://localhost?[1-10000] > /dev/null   # Показывает за какой промежуток обработал 1000 запросов
+find . -name "*.txt" | xargs rm -f                    # передает построчно то что нашел команде xargs тот передает  rm -f
 
 
 pgrep                               # Поиск процессов
