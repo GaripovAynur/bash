@@ -9,6 +9,7 @@ nohup ./myscript &                # Скрипты можно выполнять
 cat csr.yaml | envsubset | kubectl aplly -f - # Поставляем переменную в файле csr.yaml
 which kubectl                     # Посмотреть в каком переменном окружении
 unset my_env                      # Отменить переменную
+openssl x509 -enddate -noout -in healthcheck-client.crt # Проверить когда выходит срок сертификата
 
 socat -T15 udp4-listen:10000,reuseaddr,fork udp:k8s-proxy-01:10000              # Проброс UDP
 /usr/bin/ssh -N -L localhost:9443:127.0.0.1:6443 k8s-proxy-01                   # Проброс TCP    
