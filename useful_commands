@@ -43,7 +43,6 @@ q                                   # Набираем pid для удалени
 find /var/lib/containers/ -type f -name "*.log" -delete # Удалить логи Docker
 find /var/lib/docker/containers/ -type f -name "*.log.*" -delete
 
-
-echo "Hello world" | nc -w 1 -u graylog.itsft.ru 10514 # Проверить доступность порта graylog
+tar czf - /opt/share | ssh root@10.130.2.52 "tar xzf - -C /opt/share" #Быстро копирует, если много мелких файлов
 
 
