@@ -42,6 +42,7 @@ q                                   # Набираем pid для удалени
 
 find /var/lib/containers/ -type f -name "*.log" -delete # Удалить логи Docker
 find /var/lib/docker/containers/ -type f -name "*.log.*" -delete
+sudo find /var/lib/docker/containers -type f -name "*.log" -exec truncate -s 0 {} \;   # очищает (обнуляет) все Docker-логи контейнеров, не удаляя сами файлы и не ломая контейнеры.
 
 tar czf - /opt/share | ssh root@10.130.2.52 "tar xzf - -C /opt/share" #Быстро копирует, если много мелких файлов
 
